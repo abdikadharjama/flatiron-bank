@@ -1,0 +1,34 @@
+/* Transaction table styles */
+.transaction {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Table cell styles */
+.transaction td,
+.transaction th {
+  border: 1px solid #6c757d; /* Lighter border color */
+  padding: 10px;
+}
+
+/* Alternate row background color */
+.transaction tr:nth-child(even) {
+  background-color: #f8f9fa; /* Light gray */
+}
+
+/* Hover effect */
+.transaction tr:hover {
+  background-color: #e9ecef; /* Lighter gray on hover */
+}
+
+/* Table header styles */
+.transaction th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #52c316; 
+  color: #ffffff; /* White text */
+  font-weight: bold;
+  text-transform: uppercase;
+}
