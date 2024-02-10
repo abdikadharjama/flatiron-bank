@@ -1,52 +1,69 @@
-Bank Transactions App
+Flatiron Bank
+
 Overview
-This React application allows users to view, add, and filter their recent bank transactions. It's built with React hooks, demonstrating the use of state and effect to manage data and UI rendering dynamically.
+
+Flatiron Bank is a React application designed to help users effortlessly manage their bank transactions. It enables users to view, add, and filter their bank transactions with ease.
 
 Features
-View Transactions: Users can see a table listing all their transactions.
-Add Transactions: Users can add new transactions through a form. New transactions are displayed in the table immediately.
-Filter Transactions: Users can filter transactions based on the description by typing into the search bar.
-Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+View Transactions: Users can browse through all their transactions displayed in a table format.
+Add Transactions: Users can easily add new transactions using a user-friendly form. These transactions are instantly displayed in the transactions table.
+Filter Transactions: Offers the functionality to filter transactions based on the description by inputting keywords into the search bar.
+
+etting Started
+To get a local copy up and running follow these simple steps.
 
 Prerequisites
-Node.js
-npm or yarn
+Node.js (version 12 or higher recommended)
+npm
+sh
+Copy code
+npm install npm@latest -g
 Installation
-Clone the repository:
-bash
+Clone the repo
+
+sh
 Copy code
-git clone https://github.com/Abdikadharjama/bank-transactions-app.git
-cd bank-transactions-app
-Install the dependencies:
-bash
+git clone https://github.com/abdikadharjama/flatiron-bank.git
+Install NPM packages
+
+sh
 Copy code
+cd flatiron-bank
 npm install
-# or
-yarn install
-Start the JSON server to mock the backend:
-bash
+Start the JSON server
+
+sh
 Copy code
-json-server --watch db.json 
-Run the application:
-bash
+npx json-server --watch db.json 
+Make sure your db.json file contains the necessary data structure for transactions.
+
+Run the application
+
+sh
 Copy code
 npm start
-# or
-yarn start
-Visit http://localhost:5173  to view the app.
-
-Usage
-After starting the app, you can view all transactions loaded from the db.json file. Add new transactions using the form at the top of the page. Filter existing transactions using the search bar.
+Now, the application should be running on http://localhost:3000, and you can access your JSON server data on http://localhost:5173/transactions.
 
 Contributing
-Contributions are welcome! Please feel free to submit a pull request.
+Contributions make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are highly appreciated.
+
+Fork the Project
+
+Create your Feature Branch (git checkout -b feature/AmazingFeature)
+Commit your Changes (git commit -m 'Add some AmazingFeature')
+Push to the Branch (git push origin feature/AmazingFeature)
+Open a Pull Request
 
 License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+Distributed under the MIT License. See LICENSE for more information.
 
-Acknowledgments
-React documentation for guidance on React hooks.
-JSON Server for providing a simple backend solution.
+Contact
+0702943485
 
-Author:Abdikadhar Jama
+Project Link: https://github.com/abdikadharjama/flatiron-bank
+
+Acknowledgements
+React
+JSON Server
+Node.js
