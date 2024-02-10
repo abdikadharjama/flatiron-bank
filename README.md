@@ -11,6 +11,7 @@ Add Transactions: Users can easily add new transactions using a user-friendly fo
 Filter Transactions: Offers the functionality to filter transactions based on the description by inputting keywords into the search bar.
 
 Getting Started
+
 To get a local copy up and running follow these simple steps.
 
 Prerequisites
@@ -36,16 +37,21 @@ Run the application
 
 
 npm start
+
 Now, the application should be running on http://localhost:3000, and you can access your JSON server data on http://localhost:5173/transactions.
 
 Contributing
+
 Contributions make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are highly appreciated.
 
 Fork the Project
 
 Create your Feature Branch (git checkout -b feature/AmazingFeature)
+
 Commit your Changes (git commit -m 'Add some AmazingFeature')
+
 Push to the Branch (git push origin feature/AmazingFeature)
+
 Open a Pull Request
 
 License
