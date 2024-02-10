@@ -10,38 +10,31 @@ View Transactions: Users can browse through all their transactions displayed in 
 Add Transactions: Users can easily add new transactions using a user-friendly form. These transactions are instantly displayed in the transactions table.
 Filter Transactions: Offers the functionality to filter transactions based on the description by inputting keywords into the search bar.
 
-etting Started
+Getting Started
 To get a local copy up and running follow these simple steps.
 
 Prerequisites
+
 Node.js (version 12 or higher recommended)
-npm
-sh
-Copy code
+
 npm install npm@latest -g
 Installation
 Clone the repo
 
-sh
-Copy code
 git clone https://github.com/abdikadharjama/flatiron-bank.git
 Install NPM packages
 
-sh
-Copy code
+
 cd flatiron-bank
 npm install
 Start the JSON server
 
-sh
-Copy code
 npx json-server --watch db.json 
 Make sure your db.json file contains the necessary data structure for transactions.
 
 Run the application
 
-sh
-Copy code
+
 npm start
 Now, the application should be running on http://localhost:3000, and you can access your JSON server data on http://localhost:5173/transactions.
 
