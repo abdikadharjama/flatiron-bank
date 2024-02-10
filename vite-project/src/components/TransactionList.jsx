@@ -1,25 +1,24 @@
+import React from "react";
 import Transaction from "./Transaction";
-function TransactionList({ transactions }) {
+
+function TransactionList({ transactions, onDeleteTransaction }) {
   return (
-    <>
-      <h3>Transactions</h3>
-      <table className="transaction">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Description</th>
-            <th>Category</th>
-            <th>Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-          {transactions.map((transactions) => (
-            <Transaction trans={transactions} />
-          ))}
-        </tbody>
-        
-      </table>
-    </>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Amount</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {transactions.map(transaction => (
+          <Transaction key={transaction.id} transaction={transaction} onDeleteTransaction={onDeleteTransaction} />
+        ))}
+      </tbody>
+    </table>
   );
 }
 

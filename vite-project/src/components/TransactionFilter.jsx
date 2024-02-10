@@ -1,15 +1,11 @@
-function TransactionFilter({search}) {
-  const handleFilter = (e) => {
-    search(e.target.value)
-  }
+function TransactionFilter({ onSearchChange }) {
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search description"
-        onChange={handleFilter}
-      />
-    </div>
+    <input
+      type="text"
+      placeholder="Search transactions"
+      onChange={(e) => onSearchChange(e.target.value)}
+    />
   );
 }
+
 export default TransactionFilter;

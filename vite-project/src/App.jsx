@@ -1,4 +1,6 @@
 import Bank from "./components/Bank";
+import './index.css';
+
 
 function App() {
   return (

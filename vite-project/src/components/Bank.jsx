@@ -1,73 +1,57 @@
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import TransactionList from "./TransactionList";
-import TransactionFilter from "./TransactionFilter";
 import TransactionForm from "./TransactionForm";
+import TransactionFilter from "./TransactionFilter";
 
 function Bank() {
   const [transactions, setTransactions] = useState([]);
   const [search, setSearch] = useState("");
+  const [sortType, setSortType] = useState("");
 
-  const URL = "http://localhost:3000/transactions";
   useEffect(() => {
-    async function fetchTransactions() {
-      try {
-        const response = await fetch(URL);
-        if (!response.ok) throw new Error("Failed to fetch");
-        const data = await response.json();
-        setTransactions(data);
-      } catch (error) {
-        console.error("Error fetching transactions:", error);
-      }
-    }
-
-    fetchTransactions();
+    fetch("http://localhost:3000/transactions")
+      .then((res) => res.json())
+      .then(setTransactions);
   }, []);
 
-  async function addTransaction(date, description, category, amount) {
-    try {
-      const response = await fetch(URL, {
-        method: "POST",
-        body: JSON.stringify({
-          id: Math.random() + 1,
-          date: date,
-          description: description,
-          category: category,
-          amount: amount,
-        }),
-        headers: {
-          "Content-type": "application/json",
-        },
-      });
-  
-      if (!response.ok) {
-        throw new Error(`Failed to add transaction: ${response.statusText}`);
-      }
-  
-      const data = await response.json();
-  
-      setTransactions((prevTrans) => [data, ...prevTrans]);
-    } catch (error) {
-      console.error("Error adding transaction:", error);
-      // Handle error as needed
-    }
-  }
-  
+  const addTransaction = (date, description, category, amount) => {
+    const newTransaction = { id: Math.random(), date, description, category, amount };
+    setTransactions([newTransaction, ...transactions]);
+  };
 
-  const filteredTransactions = transactions.filter((item) => {
-    if (search) {
-      return item.description.toLowerCase().includes(search.toLowerCase());
+  const deleteTransaction = (id) => {
+    setTransactions(transactions.filter(transaction => transaction.id !== id));
+  };
+
+  const handleSortChange = (e) => {
+    setSortType(e.target.value);
+  };
+
+  const sortedTransactions = transactions.sort((a, b) => {
+    if (sortType === "category") {
+      return a.category.localeCompare(b.category);
+    } else if (sortType === "description") {
+      return a.description.localeCompare(b.description);
     }
-    return transactions;
+    return 0;
   });
 
+  const filteredTransactions = sortedTransactions.filter(transaction =>
+    transaction.description.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
-    <>
-      <h2>New Transaction</h2>
-      <TransactionForm newTransaction={addTransaction}/>
-      <h2>Search</h2>
-      <TransactionFilter search={setSearch} />
-      <TransactionList transactions={filteredTransactions} />
-    </>
+    <div>
+      <TransactionForm onAddTransaction={addTransaction} />
+      <TransactionFilter onSearchChange={setSearch} />
+      <select onChange={handleSortChange} defaultValue="">
+        <option value="">Sort by</option>
+        <option value="category">Category</option>
+        <option value="description">Description</option>
+      </select>
+      <TransactionList transactions={filteredTransactions} onDeleteTransaction={deleteTransaction} />
+    </div>
   );
 }
+
 export default Bank;
