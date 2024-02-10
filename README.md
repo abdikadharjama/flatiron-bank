@@ -38,7 +38,7 @@ Run the application
 
 npm start
 
-Now, the application should be running on http://localhost:3000, and you can access your JSON server data on http://localhost:5173/transactions.
+Now, the application should be running on http://localhost:3000, and you can access your JSON server data on http://localhost:3000/transactions.
 
 Contributing
 
